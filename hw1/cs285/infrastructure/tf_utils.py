@@ -26,8 +26,18 @@ def build_mlp(input_placeholder, output_size, scope, n_layers, size, activation=
     output_placeholder = input_placeholder
     with tf.variable_scope(scope):
         for _ in range(n_layers):
-            output_placeholder = TODO # HINT: use tf.layers.dense (specify <input>, <size>, activation=<?>)
-        output_placeholder = TODO # HINT: use tf.layers.dense (specify <input>, <size>, activation=<?>)
+            # TODO # HINT: use tf.layers.dense (specify <input>, <size>, activation=<?>)
+            output_placeholder = tf.layers.dense(
+                output_placeholder,
+                size,
+                activation,
+            )
+        # TODO # HINT: use tf.layers.dense (specify <input>, <size>, activation=<?>)
+        output_placeholder = tf.layers.dense(
+            output_placeholder,
+            output_size,
+            output_activation,
+        )
     return output_placeholder
 
 
@@ -62,3 +72,4 @@ def lrelu(x, leak=0.2):
     f1 = 0.5 * (1 + leak)
     f2 = 0.5 * (1 - leak)
     return f1 * x + f2 * abs(x)
+
