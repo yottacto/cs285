@@ -80,7 +80,13 @@ def sample_n_trajectories(env, policy, ntraj, max_path_length, render=False, ren
     """
     paths = []
 
-    TODO
+    # TODO
+    for _ in range(ntraj):
+        paths.append(
+            sample_trajectory(
+                env, policy, max_path_length, render, render_mode,
+            )
+        )
 
     return paths
 
